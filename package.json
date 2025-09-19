@@ -1,0 +1,47 @@
+{
+  "name": "create-typecomposer",
+  "version": "0.1.36",
+  "type": "module",
+  "license": "MIT",
+  "author": "Evan You",
+  "bin": {
+    "typecomposer": "./dist/index.mjs"
+  },
+  "preferGlobal": true,
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "start": "npm run build && clear && node ./dist/index.mjs",
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build",
+    "typecompose": "npm run build && node ./dist/index.mjs",
+    "pub": "npm publish --access public"
+  },
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zico15",
+    "directory": "packages/create-typecompose"
+  },
+  "bugs": {
+    "url": "https://github.com/zico15/issues"
+  },
+  "homepage": "https://github.com/zico15#readme",
+  "funding": "https://github.com/zico15",
+  "devDependencies": {
+    "@types/prompts": "^2.4.9",
+    "postcss": "^8.5.6",
+    "prompts": "^2.4.2",
+    "unbuild": "^3.6.1"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "ora": "^8.2.0"
+  }
+}
