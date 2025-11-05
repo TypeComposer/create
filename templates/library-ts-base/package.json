@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
+    "dev": "vite --mode development",
     "build": "vite build",
     "preview": "vite preview",
     "npm:publish": "npm run build && npm publish --access public"
@@ -17,10 +18,10 @@
   ],
   "devDependencies": {
     "sass": "^1.92.1",
-    "typecomposer": "^0.1.46",
-    "typecomposer-plugin": "^1.0.7",
+    "typecomposer": "^0.1.55",
+    "typecomposer-plugin": "^1.0.11",
     "typescript": "^5.9.2",
-    "vite": "^7.1.5",
+    "vite": "^7.1.9",
     "vite-plugin-dts": "^4.5.4",
     "csstype": "^3.1.3",
     "@types/node": "^24.3.3"

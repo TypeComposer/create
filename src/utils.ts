@@ -59,7 +59,18 @@ export async function executeCommand(command: string, args: string[], options: a
 	return new Promise<void>((resolve, reject) => {
 		try {
 			const child = spawn(command, args, options);
+			// If the parent receives SIGINT/SIGTERM, ensure we kill the child process
+			const onParentSignal = (signal: NodeJS.Signals) => {
+				try {
+					if (!child.killed) child.kill('SIGTERM');
+				} catch (e) { /* ignore */ }
+			};
+			process.once('SIGINT', onParentSignal);
+			process.once('SIGTERM', onParentSignal);
 			child.on('close', (code) => {
+				// cleanup handlers
+				try { process.removeListener('SIGINT', onParentSignal); } catch (e) { }
+				try { process.removeListener('SIGTERM', onParentSignal); } catch (e) { }
 				if (code === 0) {
 					resolve();
 				} else {

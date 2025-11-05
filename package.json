@@ -1,6 +1,6 @@
 {
   "name": "create-typecomposer",
-  "version": "0.1.36",
+  "version": "0.1.42",
   "type": "module",
   "license": "MIT",
   "author": "Evan You",

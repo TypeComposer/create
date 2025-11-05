@@ -1,10 +1,10 @@
 import { defineConfig } from "vite";
-import typeComposerPlugin from "typecomposer-plugin";
+import typecomposer from "typecomposer-plugin";
 import dts from "vite-plugin-dts";
 import path from "path";
 
 export default defineConfig({
-  plugins: [dts(), typeComposerPlugin()],
+  plugins: [dts(), typecomposer()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
